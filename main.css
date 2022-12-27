@@ -1,0 +1,439 @@
+@font-face {
+  font-family: Inter;
+  src: url(./assets/fonts/Inter-VariableFont_slnt\wght.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: hsl(36, 100%, 99%);
+  font-size: 15px;
+}
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  width: 90%;
+  margin: 4rem auto;
+  /* place-items: center; */
+  padding: 1rem;
+  height: 100vh;
+}
+
+.wrapper > *{
+ margin-bottom: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: 100%;
+}
+
+p {
+  color: hsl(236, 13%, 42%);
+  line-height: 1.6;
+  font-size: .9rem;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color:hsl(236, 13%, 42%);
+}
+
+/*========= header styling ============*/
+header {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+nav {
+  display: none;
+}
+
+.menu{
+  width: 90%;
+  text-align: end;
+  /* border: solid 2px blue; */
+  height: auto;
+}
+
+/* ===============article styling ============*/
+.desktop {
+  display: none;
+}
+
+.mobile img{
+  width: 100%;
+  object-fit: fill;
+}
+
+.big-text {
+  color: hsl(240, 100%, 5%);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.read-more {
+  font-size: 0.7rem;
+  width: 15em;
+  height: 3.2em;
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  border: none;
+  letter-spacing: 0.3em;
+  margin-top: 1rem;
+}
+
+.read-more:hover{
+  border: hsl(240, 100%, 5%) solid 2px;
+  cursor: pointer;
+}
+
+.read-more:active{
+  background-color: hsl(240, 100%, 5%);
+  color: hsl(233, 8%, 79%);
+  font-weight: 700;
+}
+
+/* ===========aside styling ================*/
+aside {
+  background-color: hsl(240, 100%, 5%);
+  color: hsl(233, 8%, 79%);
+  padding: 1.4em;
+}
+
+.new {
+  color: hsl(35, 77%, 62%);
+  font-size: 2em;
+}
+
+/*============== section styling ============*/
+.section1,.section2,.section3{
+  height: 150px;
+}
+
+.col1,
+.col2,
+.col3 {
+  display: flex;
+  height: 100%;
+}
+
+
+.small-img {
+  width: 30%;
+}
+
+.small-img img{
+  width: 100%;
+}
+
+.categories {
+  width: 70%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.numbers {
+  color: hsl(233, 8%, 79%);
+  font-size: 2em;
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+}
+
+.categories h4 {
+  font-size: 1.1em;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.categories p {
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.96em;
+}
+
+hr {
+  border: 0.1px solid;
+  opacity: 0.4;
+}
+
+/* =========active state========== */
+.active:hover{
+  cursor: pointer;
+}
+
+.active:active{
+  color: hsl(35, 77%, 62%);
+}
+
+/* =============footer========== */
+footer{
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.348);
+  color: rgb(11, 11, 24);
+  padding: .5rem;
+  text-align: center;
+}
+
+
+
+@media screen and (601px <= width <=768px){
+  
+  body {
+    width: 90%;
+  }
+
+  .menu{
+    display: none;
+  }
+  
+  nav {
+    width: 90%;
+    margin: 1em auto;
+    display: block;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav ul li {
+    margin-left: 1.5em;
+    color: hsl(233, 8%, 79%);
+    font-weight: 400;
+  }
+
+  nav ul li a:hover{
+    border-bottom: solid 2px hsl(5, 85%, 63%);
+   }
+  
+  .wrapper{
+    display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "article1 article1"
+  "article2 article3"
+  "aside aside"
+  "section1 section1"
+  "section2 section2"
+  "section3 section3";
+}
+
+aside {
+  margin: 0;
+  grid-area: aside;
+}
+
+.section1 {
+  grid-area: section1;
+}
+
+.section2 {
+  grid-area: section2;
+}
+
+.section3 {
+  grid-area: section3;
+}
+
+.article-top{
+  grid-area: article1;
+ }
+
+ .big-text,.small-text-container{
+   height: 250px;
+ }
+ 
+ .big-text{
+   grid-area: article2;
+   font-size: 3.2rem;
+    line-height: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-text-container{
+  grid-area: article3;
+  position: relative;
+}
+
+.read-more{
+  position: absolute;
+  bottom: 0;
+ }
+
+  .small-text > p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .section1,.section2,.section3{
+    height: 120px;
+    /* width: auto; */
+  }
+
+.small-img {
+  padding: 0;
+  width: 20%;
+}
+
+.categories {
+  width: 80%;
+}
+
+.categories h1{
+  font-size: 2.2rem;
+}
+
+.categories h4{
+  font-size: 1.25rem;
+}
+
+.categories p{
+  font-size: 1.1rem;
+}
+
+}
+
+
+/* ==========desktop styling===================== */
+
+
+@media screen and (769px <= width)  {
+  
+  .menu{
+    display: none;
+  }
+
+  nav {
+    width: 90%;
+    margin: 1em auto;
+    display: block;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav ul li {
+    margin-left: 2em;
+    color: hsl(233, 8%, 79%);
+    font-weight: 400;
+  }
+
+  nav ul li a:hover{
+   border-bottom: solid 2px hsl(5, 85%, 63%);
+  }
+  
+  .mobile {
+    display: none;
+  }
+  
+  .desktop {
+    display: block;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-gap: .8rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "article1 article1 aside"
+  "article2 article3 aside"
+  "section1 section2 section3";
+}
+
+aside {
+  grid-area: aside;
+}
+
+.section1 {
+  grid-area: section1;
+}
+
+.section2 {
+  grid-area: section2;
+}
+
+.section3 {
+  grid-area: section3;
+}
+
+.article-top{
+  grid-area: article1;
+}
+ 
+.big-text{
+   grid-area: article2;
+}
+
+.small-text-container{
+  grid-area: article3;
+  position: relative;
+ }
+
+ .read-more{
+  position: absolute;
+  bottom: 0;
+ }
+
+  .article-bottom {
+    display: flex;
+  }
+
+
+  .big-text, .small-text-container{
+  min-height: 180px;
+  }
+
+  
+  .big-text {
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .small-text > p {
+    font-size: 1.1rem;
+  }
+  
+  
+  .section1,.section2,.section3{
+    height: 100%;
+    max-height: 175px;
+  }
+
+  .categories{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  }
+}
