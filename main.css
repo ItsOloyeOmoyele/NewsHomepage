@@ -1,30 +1,49 @@
 @font-face {
   font-family: Inter;
-  src: url(./assets/fonts/Inter-VariableFont_slnt\wght.ttf);
+  src: url(assets/fonts/static/Inter-Regular.ttf);
+  font-family: "Inter Bold";
+  src: url(assets/fonts/static/Inter-Bold.ttf);
+  font-family: "Inter Extra-bold";
+  src: url(assets/fonts/static/Inter-ExtraBold.ttf)
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
   background-color: hsl(36, 100%, 99%);
   font-size: 15px;
+  
 }
 
 body {
-  height: 100%;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-  width: 90%;
-  margin: 4rem auto;
-  /* place-items: center; */
-  padding: 1rem;
-  height: 100vh;
+  width: 95%;
+  margin: 2rem auto;
+  padding: 0 .5rem;
+  z-index: ;
 }
 
-.wrapper > *{
+.cover {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 100%;
+  right: 0;
+  left: 0;
+  background-color: hsl(0, 0%, 95%);
+  z-index: -1;
+}
+
+.show-cover {
+  bottom: 0;
+}
+
+#wrapper > * {
  margin-bottom: 1.5rem;
 }
 
@@ -36,12 +55,13 @@ img {
 
 p {
   color: hsl(236, 13%, 42%);
-  line-height: 1.6;
+  line-height: 1.8;
   font-size: .9rem;
 }
 
-a{
+a {
   text-decoration: none;
+  color: hsl(233, 8%, 79%);
   cursor: pointer;
   color:hsl(236, 13%, 42%);
 }
@@ -49,41 +69,81 @@ a{
 /*========= header styling ============*/
 header {
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   align-items: center;
 }
 
-nav {
+#menu {
+  width: 90%;
+  text-align: end;
+}
+
+#menu-btn {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+}
+
+#closeBtn {
+  display: none;
+  position: fixed;
+  right: 2em;
+  top: 40px;
+}
+
+#desktop-nav {
   display: none;
 }
 
-.menu{
-  width: 90%;
-  text-align: end;
-  /* border: solid 2px blue; */
-  height: auto;
+nav ul li a:hover{
+  border-bottom: solid 2px hsl(5, 85%, 63%);
+ }
+
+.mobile-nav {
+  display: block;
+  height: 100vh;
+  width: 60vw;
+  position: fixed;
+  top: -100vh;
+  right: 0;
+  background-color: hsl(36, 100%, 99%);
+  transition: top 500ms;
 }
+
+.mobile-nav-show {
+  top: 0;
+}
+
+.mobile-nav ul {
+  margin: 9rem 0 0 1.5rem;
+  text-align: left;
+}
+
+.mobile-nav ul li {
+  list-style: none;
+  padding: .8em 0;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 
 /* ===============article styling ============*/
 .desktop {
   display: none;
 }
 
-.mobile img{
-  width: 100%;
-  object-fit: fill;
-}
-
-.big-text {
+#big-text {
   color: hsl(240, 100%, 5%);
   font-size: 2rem;
   font-weight: 800;
   line-height: 0.9;
 }
 
-.read-more {
-  font-size: 0.7rem;
+#read-more {
+  font-size: 0.8em;
   width: 15em;
   height: 3.2em;
   background-color: hsl(5, 85%, 63%);
@@ -93,12 +153,12 @@ nav {
   margin-top: 1rem;
 }
 
-.read-more:hover{
+#read-more:hover {
   border: hsl(240, 100%, 5%) solid 2px;
   cursor: pointer;
 }
 
-.read-more:active{
+#read-more:active {
   background-color: hsl(240, 100%, 5%);
   color: hsl(233, 8%, 79%);
   font-weight: 700;
@@ -109,16 +169,29 @@ aside {
   background-color: hsl(240, 100%, 5%);
   color: hsl(233, 8%, 79%);
   padding: 1.4em;
+  font-weight: 800;
 }
 
-.new {
+aside h3 {
+  width: max-content;
+}
+
+aside p {
+  color: hsl(233, 8%, 79%);
+  font-weight: 200;
+  margin-top: 8px;
+  font-size: .9em;
+}
+
+#new {
   color: hsl(35, 77%, 62%);
   font-size: 2em;
 }
 
 /*============== section styling ============*/
-.section1,.section2,.section3{
-  height: 150px;
+.section1,.section2,.section3 {
+  height: 120px;
+  margin-bottom: 1.5rem;
 }
 
 .col1,
@@ -129,11 +202,14 @@ aside {
 }
 
 
+
+
 .small-img {
   width: 30%;
+  max-width: 130px;
 }
 
-.small-img img{
+.small-img img {
   width: 100%;
 }
 
@@ -142,7 +218,6 @@ aside {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 
@@ -157,10 +232,11 @@ aside {
   font-size: 1.1em;
   font-weight: 800;
   margin-bottom: 0.3rem;
+  width: max-content;
 }
 
 .categories p {
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 500;
   font-size: 0.96em;
 }
@@ -171,16 +247,13 @@ hr {
 }
 
 /* =========active state========== */
-.active:hover{
+.active:hover {
   cursor: pointer;
-}
-
-.active:active{
   color: hsl(35, 77%, 62%);
 }
 
 /* =============footer========== */
-footer{
+footer {
   margin-top: 2rem;
   background-color: rgba(0, 0, 0, 0.348);
   color: rgb(11, 11, 24);
@@ -190,49 +263,51 @@ footer{
 
 
 
-@media screen and (601px <= width <=768px){
+@media screen and (601px <= width <= 1002px) {
   
   body {
     width: 90%;
   }
 
-  .menu{
+  #menu{
+    width: 100%;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+
+  .mobile-nav {
     display: none;
   }
   
-  nav {
-    width: 90%;
-    margin: 1em auto;
+  #desktop-nav {
     display: block;
+    margin: 1em auto;
+    height: auto;
   }
   
-  nav ul {
+  #desktop-nav ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
   }
   
-  nav ul li {
+  #desktop-nav ul li {
     margin-left: 1.5em;
     color: hsl(233, 8%, 79%);
+    font-size: 1.2em;
     font-weight: 400;
   }
-
-  nav ul li a:hover{
-    border-bottom: solid 2px hsl(5, 85%, 63%);
-   }
   
-  .wrapper{
+  #wrapper {
     display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-  "article1 article1"
-  "article2 article3"
-  "aside aside"
-  "section1 section1"
-  "section2 section2"
-  "section3 section3";
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "article1 article1"
+    "article2 article3"
+    "aside aside";
 }
 
 aside {
@@ -256,11 +331,11 @@ aside {
   grid-area: article1;
  }
 
- .big-text,.small-text-container{
+ #big-text,.small-text-container{
    height: 250px;
  }
  
- .big-text{
+ #big-text{
    grid-area: article2;
    font-size: 3.2rem;
     line-height: 0.9;
@@ -274,14 +349,14 @@ aside {
   position: relative;
 }
 
-.read-more{
+#read-more{
   position: absolute;
   bottom: 0;
  }
 
   .small-text > p {
     margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .mobile {
@@ -292,9 +367,12 @@ aside {
     display: block;
   }
 
+  aside {
+    font-size: 1.3rem;
+  }
+
   .section1,.section2,.section3{
     height: 120px;
-    /* width: auto; */
   }
 
 .small-img {
@@ -324,32 +402,56 @@ aside {
 /* ==========desktop styling===================== */
 
 
-@media screen and (769px <= width)  {
-  
-  .menu{
+@media screen and (1002px <= width)  {
+
+  body {
+    min-width: 1000px;
+    max-width: 1120px;
+  }
+
+  #menu{
+    width: 100%;
+  }
+
+  #menu-btn {
     display: none;
   }
 
-  nav {
-    width: 90%;
-    margin: 1em auto;
-    display: block;
+  .mobile-nav {
+    display: none;
   }
   
-  nav ul {
+  #desktop-nav {
+    display: block;
+    margin: 1em auto;
+    height: auto;
+  }
+  
+  #desktop-nav ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
   }
   
-  nav ul li {
-    margin-left: 2em;
+  #desktop-nav ul li {
+    margin-left: 1.5em;
     color: hsl(233, 8%, 79%);
+    font-size: 1.2em;
     font-weight: 400;
   }
 
-  nav ul li a:hover{
-   border-bottom: solid 2px hsl(5, 85%, 63%);
+  #new {
+    font-size: 2.7rem;
+    margin: .2em 0;
+  }
+
+  aside {
+    line-height: 30px;
+    
+  }
+
+  aside p {
+    font-size: 1rem;
   }
   
   .mobile {
@@ -360,13 +462,25 @@ aside {
     display: block;
   }
 
-  .wrapper{
+  #wrapper,#section-wrapper{
+    margin-top: 3rem;
+  }
+
+  #wrapper{
     display: grid;
-    grid-gap: .8rem;
+    grid-gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
     "article1 article1 aside"
-  "article2 article3 aside"
+    "article2 article3 aside";
+    }
+
+#section-wrapper {
+  font-size: 100%;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
   "section1 section2 section3";
 }
 
@@ -390,7 +504,7 @@ aside {
   grid-area: article1;
 }
  
-.big-text{
+#big-text{
    grid-area: article2;
 }
 
@@ -399,7 +513,7 @@ aside {
   position: relative;
  }
 
- .read-more{
+ #read-more{
   position: absolute;
   bottom: 0;
  }
@@ -409,13 +523,14 @@ aside {
   }
 
 
-  .big-text, .small-text-container{
+  #big-text, .small-text-container{
   min-height: 180px;
   }
 
   
-  .big-text {
-    font-size: 3.5rem;
+  #big-text {
+    font-size: 3.7em;
+    font-weight: bolder;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -423,6 +538,7 @@ aside {
   
   .small-text > p {
     font-size: 1.1rem;
+    margin-bottom: 40px;
   }
   
   
@@ -431,9 +547,16 @@ aside {
     max-height: 175px;
   }
 
-  .categories{
-    display: flex;
-    flex-direction: column;
-  justify-content: center;
+  .small-img {
+    min-width: 100px;
   }
+
+  .categories {
+    justify-content: space-evenly;
+  }
+
+  .categories * {
+    line-height: 1.3em;
+  }
+
 }
